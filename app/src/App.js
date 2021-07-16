@@ -1,25 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import TW from "./TW";
+import {useCallback, useState} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          asfasdgasdgasdgasdgasdg
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const [list, setList] = useState([{name: 'kek',}, {name: 'qweqwe',}, {name: 'h',}, {name: 'g',}, {name: 'sssss',}, {name: 'swssss',}]);
+
+  const handleRemove = (index) => {
+    const listCopy = [...list];
+
+    listCopy.splice(index, 1);
+
+    setList(listCopy)
+  }
+
+  return <TW items={list} handleRemove={handleRemove}/>
 }
+
 
 export default App;
